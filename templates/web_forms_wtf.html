@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}Web Forms - WTF{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h2 class="mb-4">Preencha o Formulário</h2>
+        <form method="POST" action="/Web-Forms-WTF" novalidate>
+            {{ formulario.hidden_tag() }}
+            
+            <div class="mb-3">
+                <label for="nome" class="form-label">{{ formulario.nome.label }}</label>
+                
+                {{ formulario.nome(class="form-control", id="nome", size=32) }}
+                {% if formulario.nome.errors %}
+                    <div class="invalid-feedback d-block">
+                        <ul class="mb-0">
+                            {% for error in formulario.nome.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+            
+            <div class="mb-3">
+                <label for="email" class="form-label">{{ formulario.email.label }}</label>
+                
+                {{ formulario.email(class="form-control", id="email", size=32) }}
+                {% if formulario.email.errors %}
+                    <div class="invalid-feedback d-block">
+                        <ul class="mb-0">
+                            {% for error in formulario.email.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                            
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+            
+            <div class="mb-3">
+                <label for="idade" class="form-label">{{ formulario.idade.label }}</label>
+                
+                {{ formulario.idade(class="form-control", id="idade") }}
+                {% if formulario.idade.errors %}
+                    <div class="invalid-feedback d-block">
+                        <ul class="mb-0">
+                            {% for error in formulario.idade.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+
+            </div>
+            
+            <div class="mb-3">
+                <label for="mensagem" class="form-label">{{ formulario.mensagem.label }}</label>
+                
+                {{ formulario.mensagem(class="form-control", id="mensagem", rows=4) }}
+                {% if formulario.mensagem.errors %}
+                    <div class="invalid-feedback d-block">
+                        <ul class="mb-0">
+                            {% for error in formulario.mensagem.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+            
+            <div class="mt-4">
+                {{ formulario.enviar(class="btn btn-primary") }}
+            </div>
+        </form>
+    </div>
+    <br><br>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}CRUD SQL{% endblock %}
+
+{% block content %}
+    <!-- Seção categorias -->
+    <h3 class="mb-4"> Lista de Categorias </h3>
+    <a href="" class="btn btn-primary mb-5">Pesquisar</a>
+    <ul>
+        {% for categoria in categorias %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ categoria.nome }}
+            <span>
+            <a href="a" class="btn btn-sm btn-warning me-2">Editar</a>
+            <a href="a" class="btn btn-sm btn-danger">Excluir </a>
+            </span>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/categoria" class="btn btn-primary-mb-5">Adicionar categoria</a>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Upload arquivo{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Carga de Arquivo</h1>
+
+    <!-- Mensagens Flash -->
+    {%with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                <ul class="mb-0">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="Close"></button>
+            </div>
+        {% endif %}
+    {% endwith %}
+    
+    <!-- Formulário de Upload -->
+    <form action="/upload-arquivo" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="arquivo" class="form-label">Selecione o arquivo: </label>
+            <input type="file" class="form-control" name="arquivo" id="arquivo" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+
+{% endblock %}

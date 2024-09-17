@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Obrigado{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="text-center">
+            <h1 class="display-4">Obrigado!</h1>
+            <p class="lead">Nome: <strong>{{ contato['nome'] | upper }}</strong></p>
+            <p class="lead">Email: <strong>{{ contato['email'] }}</strong></p>
+            <p class="lead">Idade: <strong>{{ contato['idade'] }}</strong></p>
+            <p class="lead">Mensagem:</p>
+            <div class="alert alert-secondary" role="alert">
+                {{ contato['mensagem'] }}
+            </div>
+            <button class="btn btn-primary mt-4" onclick="window.location.href='{{ url_for('web_forms_wtf') }}'">Voltar</button>
+        </div>
+    </div>
+{% endblock %}

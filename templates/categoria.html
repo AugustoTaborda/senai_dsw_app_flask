@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}CRUD SQL{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1>
+                {% if categoria %} Editar {% else %} Adicionar {% endif %} Categoria </h1>
+
+            <!-- Exibir mensagens flash - inicio -->
+             {% with mensages = get_flashed_messages(with_categories=true)  %}
+                {% if messages %}
+                    <div>
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+                            </div>
+                        {% endfor %}
+                    </div>
+                {%  endif %}
+             {% endith %}
+            <!-- Exibir mensagens flash - Fim -->
+
+            <!-- Formulario Categoria -->
+            <form method="POST"> 
+                <div>
+                    <label for="nome" class="form-label">Nome da categoria</label>
+                    <input type="text" class="form-control" id="nome" value="{{ categora.Nome if categoria else '' }}" required>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-sucess" >
+                        {% if categoria  %}
+                            Atualizar
+                        {% else %}
+                            Salvar
+                        {% endif %} 
+                    </button>
+                    <a href="{{ url_for('crud_sql') }}" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

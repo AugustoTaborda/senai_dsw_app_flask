@@ -1,0 +1,27 @@
+1) Acessar, no prompt de comando, essa pasta;
+
+2) Listar as versões do python instaladas:
+   py -0
+
+   Resultado do comando acima (exemplo)
+   -V:3.12 *        Python 3.12 (64-bit)
+   -V:3.11          Python 3.11 (64-bit)
+   -V:3.10          Python 3.10 (64-bit)
+   -V:3.9           Python 3.9 (64-bit)
+   -V:3.8           Python 3.8 (64-bit)
+
+3) Criar um ambiente virtual com a >>>versão mais recente<<<, no exemplo acima é a V:3.12
+   py -3.12 -m venv .venv
+
+4) Ativar o ambiente virtual:
+   .venv\Scripts\Activate
+
+5) Instalar as bibliotecas que estão no arquivo requirements.txt:
+   pip install -r requirements.txt
+
+6) Desativar o ambiente virtual:
+   deactivate
+
+7) Abrir a pasta deste projeto no VS Code e seguir as aulas...
+
+Abraço!

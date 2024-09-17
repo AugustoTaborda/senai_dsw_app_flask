@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}CRUD Simples{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h3 class="mb-4 text-center">Lista de Tarefas</h3>
+
+    <form action="{{ url_for('adicionar') }}" method="post" class="d-flex mb-4">
+        <input type="text" name="tarefa" class="form-control me-2" placeholder="Digite uma tarefa" required>
+        <button type="submit" class="btn btn-primary"> adicionar </button>
+    </form>
+
+    <ul class="list-group">
+        {% for tarefa in tarefas %}
+            <li class="list-group-item d-flex justify-between align-items-center">
+                {{ tarefa }}
+                <span>
+                    <a href="{{ url_for('editar', tarefa_id=loop.index0) }}" class="btn btn-sm btn-warning me-2">Editar</a>
+                    <a href="{{ url_for('Excluir', tarefa_id=loop.index0) }}" class="btn btn-sm btn-danger">Excluir</a>
+                </span>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
